@@ -149,6 +149,12 @@ def name():
         return json.dumps({'name' : person.name})
     else: 
         return json.dumps({'name' : '无'})
+    
+@app.route('/items/<name>')
+def items(name):
+    passenger = Passengers.query.filter_by(name=name).first()
+    items_data = base64.b64encode(passenger.Xray_image).decode()
+    return json.dumps({'items_data' : items_data})
 
     
 def init_data():

@@ -115,7 +115,6 @@ button.onclick = function(){
 setInterval(() => {
   fetch("/name").then((e) => e.json())
   .then((e) =>{
-    console.log(e.name)
     PerName.textContent = e.name;
   })
 }, 500);

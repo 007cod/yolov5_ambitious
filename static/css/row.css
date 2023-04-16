@@ -11,6 +11,7 @@
     .KatyLightScrollRowsBox > .content {
       scrollbar-width: none;
       scrollbar-height: none;
+      background-color: white;
     }
 
     .KatyLightScrollRowsBox {

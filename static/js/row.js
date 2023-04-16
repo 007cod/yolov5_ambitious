@@ -133,6 +133,9 @@ class myScroll {
     }
   }
 
+let prohibited_item = document.querySelector(".item img");
+let Passenger_name = document.querySelector('.name').textContent;
+
 var my
 window.onload = () => {
 my = new myScroll({ id: 'ab' ,space:100})
@@ -140,3 +143,13 @@ setTimeout(()=>{
     my.update();
 },1500)
 }
+
+setInterval(() => {
+  if (Passenger_name != 'undefined')
+  {
+    fetch("/items/"+Passenger_name).then((e) => e.json())
+    .then((e) =>{
+      prohibited_item.src = 'data:image/png;base64,' + e.items_data;
+    })
+  }
+}, 500);

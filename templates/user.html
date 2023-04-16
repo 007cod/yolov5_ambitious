@@ -12,7 +12,7 @@
         <div>
           <img id='photo' src="data:image/png;base64,{{ base64.b64encode(passenger.photo).decode('utf-8')}}" height="50" alt="Image" />
         </div>
-        <table>
+        <table class="info">
           <thead>
               <tr>
                   <th>姓名</th>
@@ -24,11 +24,11 @@
           </thead>
           <tbody>
               <tr>
-                  <td>{{ passenger["name"] }}</td>
-                  <td>{{ passenger["address"] }}</td>
-                  <td>{{ passenger["phone"] }}</td>
-                  <td>{{ passenger["destination"] }}</td>
-                  <td>{{ passenger["train_number"] }}</td>
+                  <td class="name">{{ passenger["name"] }}</td>
+                  <td class="address">{{ passenger["address"] }}</td>
+                  <td class="phone">{{ passenger["phone"] }}</td>
+                  <td class="destination">{{ passenger["destination"] }}</td>
+                  <td class="train_number">{{ passenger["train_number"] }}</td>
               </tr>
           </tbody>
         </table>
