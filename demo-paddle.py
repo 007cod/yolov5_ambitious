@@ -149,6 +149,7 @@ def name():
         return json.dumps({'name' : person.name})
     else: 
         return json.dumps({'name' : '无'})
+
     
 def init_data():
     with open('./static/images/kunkun.jpg','rb') as f:
