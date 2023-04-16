@@ -1,0 +1,413 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+  box-sizing: border-box;
+}
+html::-webkit-scrollbar {
+  width: 5px;
+}
+html::-webkit-scrollbar-track {
+  background-color: black;
+}
+html::-webkit-scrollbar-thumb {
+  background: #464545;
+  border-radius: 25px;
+}
+.container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  background-color: black;
+  padding-bottom: 60px;
+}
+.container .left {
+  flex: 2;
+  margin-left: 10px;
+}
+.container .left .thingDetail {
+  width: 100%;
+  padding: 0 10px;
+  background-size: 5px 100%;
+  display: flex;
+}
+.container .left .thingDetail .thingList {
+  overflow: scroll;
+  height: 100%;
+  width: 38%;
+  margin: 0 auto;
+}
+.container .left .thingDetail .thingList::-webkit-scrollbar {
+  width: 0;
+}
+.container .left .thingDetail .thingList::-webkit-scrollbar-track {
+  background-color: black;
+}
+.container .left .thingDetail .thingList::-webkit-scrollbar-thumb {
+  background: #8e8a8a;
+  border-radius: 25px;
+}
+.container .left .thingDetail .thingList > div {
+  height: 64px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.container .left .thingDetail .thingList > div .detailWrapper {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+}
+.container .left .thingDetail .thingList > div .detailWrapper :first-child {
+  font-size: 1.2vw;
+}
+.container .left .thingDetail .thingList > div .detailWrapper :last-child {
+  font-size: 0.7vw;
+  opacity: 0.8;
+  text-align: right;
+}
+.container .left .thingDetail .thingList .thingItemNormal {
+  background: url(/static/images/normal_border.png) no-repeat 0 0;
+  background-size: 100% 100%;
+}
+.container .left .thingDetail .thingList .thingItemDanger {
+  background: url(/static/images/danger_border.png) no-repeat 0 0;
+  background-size: 100% 100%;
+}
+.container .left .thingDetail .thingList .thingItemDanger * {
+  color: #f40000;
+}
+.container .left .thingDetail .dangerDetail {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper {
+  width: 90%;
+  padding-left: 0.5vw;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .dangerNo {
+  text-align: center;
+  font-size: 1vw;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .dangerNo > span {
+  color: #f40000;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .possiblity {
+  margin-top: 10px;
+  height: 80px;
+  background: url(/static/images/danger_signal.png) no-repeat 0 0;
+  background-size: 6px 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .possiblity .posiDetail {
+  display: flex;
+  justify-content: space-evenly;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .possiblity .posiDetail .posi :first-child,
+.container .left .thingDetail .dangerDetail .detailWrapper .possiblity .posiDetail .harmLevel :first-child {
+  font-size: 0.7vw;
+  opacity: 0.8;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .possiblity .posiDetail .posi :last-child,
+.container .left .thingDetail .dangerDetail .detailWrapper .possiblity .posiDetail .harmLevel :last-child {
+  font-size: 1.2vw;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .possiblity p {
+  font-size: 1vw;
+  text-align: center;
+  color: #f40000;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .compositionList {
+  margin-left: 20px;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .compositionList .compositionItem {
+  margin-top: 10px;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .compositionList .compositionItem :first-child {
+  font-size: 1vw;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .compositionList .compositionItem :last-child {
+  font-size: 0.8vw;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .compositionList :nth-child(2) {
+  opacity: 0.9;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .compositionList :nth-child(3) {
+  opacity: 0.8;
+}
+.container .left .thingDetail .dangerDetail .detailWrapper .compositionList :nth-child(4) {
+  opacity: 0.7;
+}
+.container .middle {
+  flex: 3;
+}
+.container .middle .topBar .title {
+  width: 408px;
+  height: 56px;
+  font-weight: bold;
+  font-size: 2.1vw;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .middle .topBar .subTitle {
+  width: 360px;
+  font-size: 0.8vw;
+  margin: 0 auto;
+  text-align: center;
+}
+.container .middle .steps {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.container .middle .steps .step {
+  display: flex;
+  align-items: center;
+}
+.container .middle .steps .step .icon {
+  width: 15px;
+  height: 15px;
+  pointer-events: auto;
+  border: none;
+  border-radius: 200px;
+  background: #4646ff;
+  margin-right: 10px;
+}
+.container .middle .steps .step .desc videoBox span {
+  display: block;
+}
+.container .middle .steps .step .desc videoBox span:first-child {
+  font-size: 1.2vw;
+}
+.container .middle .steps .step .desc videoBox span:last-child {
+  font-size: 0.8vw;
+}
+.container .middle .mianCamera {
+  width: 100%;
+  margin-top: 20px;
+  background: url(/static/images/camera_bg.png) no-repeat;
+  background-size: 100% 100%;
+  aspect-ratio: 3/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.container .middle .mianCamera .videoBox {
+  width: 80%;
+}
+.container .middle .mianCamera .videoBox img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+}
+.container .middle .mianCamera .hint {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 10%;
+}
+.container .middle .mianCamera .hint p {
+  color: #f40000;
+  font-size: 1.2vw;
+}
+.container .middle .mianCamera .hint span {
+  font-size: 0.8vw;
+}
+.container .middle .mianCamera .hint span.doubt {
+  color: #f40000;
+}
+.container .middle .eqStatus {
+  margin-top: 10px;
+  width: 100%;
+  aspect-ratio: 4/1;
+  border: 1px solid rgba(66, 82, 88, 0.8);
+  background-size: 100% 100%;
+  position: relative;
+  padding: 0 5%;
+}
+.container .middle .eqStatus .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .middle .eqStatus .title .eqh1 * {
+  display: block;
+}
+.container .middle .eqStatus .title .eqh1 span:first-child {
+  font-size: 1.2vw;
+}
+.container .middle .eqStatus .title .eqh1 span:last-child {
+  font-size: 0.8vw;
+  opacity: 0.8;
+}
+.container .middle .eqStatus .title .runTime {
+  font-size: 1.2vw;
+  color: #4074e0;
+}
+.container .middle .eqStatus .details {
+  width: 100%;
+}
+.container .middle .eqStatus .details .useage {
+  position: absolute;
+  padding: 10px;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+.container .middle .ctlBtns {
+  width: 100%;
+  height: 27px;
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  user-select: none;
+  cursor: pointer;
+}
+.container .middle .ctlBtns .start,
+.container .middle .ctlBtns .warn,
+.container .middle .ctlBtns .stop {
+  flex: 1;
+  text-align: center;
+  line-height: 27px;
+  background-color: #212121;
+}
+.container .middle .ctlBtns .start:hover,
+.container .middle .ctlBtns .warn:hover,
+.container .middle .ctlBtns .stop:hover {
+  background-color: #6a6a6a;
+}
+.container .middle .ctlBtns .warn {
+  background-color: #f42800;
+}
+.container .right {
+  flex: 1.5;
+  position: relative;
+  margin-right: 10px;
+}
+.container .right .time {
+  position: absolute;
+  left: 25%;
+  top: 20px;
+  transform: translateX(-50%);
+}
+.container .right .rightUpper {
+  width: 100%;
+  height: 470px;
+  display: flex;
+}
+.container .right .rightUpper .rightDetail {
+  flex: 1;
+  display: flex;
+  padding-top: 20px;
+}
+.container .right .rightUpper .rightDetail .owner {
+  flex: 3;
+}
+.container .right .rightUpper .rightDetail .owner .ownerDetailContainer {
+  margin: 50px 10px 10px 10px;
+}
+.container .right .rightUpper .rightDetail .owner .ownerDetailContainer .titleContainer .title {
+  font-size: 1.2vw;
+}
+.container .right .rightUpper .rightDetail .owner .ownerDetailContainer .titleContainer .titleDesc {
+  font-size: 0.8vw;
+}
+.container .right .rightUpper .rightDetail .owner .ownerDetailContainer .titleContainer .lines {
+  width: 100%;
+  display: flex;
+}
+.container .right .rightUpper .rightDetail .owner .ownerDetailContainer .titleContainer .lines div {
+  width: 20%;
+  background-color: #fff;
+  height: 3px;
+  margin-right: 2px;
+  opacity: 0.8;
+}
+.container .right .rightUpper .rightDetail .owner .ownerDetailContainer .titleContainer .lines :first-child {
+  width: 30%;
+  opacity: 1;
+}
+.container .right .rightUpper .rightDetail .owner .ownerDetailContainer .titleContainer .lines :last-child {
+  width: 10%;
+  opacity: 0.6;
+}
+.container .right .rightUpper .rightDetail .owner .ownerDetailContainer .ownerDetail {
+  width: 80%;
+  padding: 20px 10px;
+  display: flex;
+  background: url(/static/images/owner_wrap.png) no-repeat right center;
+  background-size: 70% 100%;
+}
+.container .right .rightUpper .rightDetail .owner .ownerDetailContainer .ownerDetail .photo {
+  flex: 1;
+  width: 60%;
+  margin-right: 10px;
+}
+.container .right .rightUpper .rightDetail .owner .ownerDetailContainer .ownerDetail .detailInfo {
+  flex: 1;
+}
+.container .right .rightUpper .rightDetail .owner .ownerDetailContainer .ownerDetail .detailInfo div {
+  margin-top: 5px;
+}
+.container .right .rightUpper .rightDetail .owner .ownerDetailContainer .ownerDetail .detailInfo .button {
+  margin-top: 5px;
+  background-color :royalblue;
+  border-color: royalblue;
+}
+.container .right .rightUpper .rightDetail .owner .capture {
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 10px;
+  aspect-ratio: 1;
+}
+.container .right .rightUpper .rightDetail .owner .capture img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.container .right .rightUpper .rightDetail .owner .statusBox {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px 0 10px 0;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #423b3b;
+  border-radius: 12px;
+}
+.container .right .rightUpper .rightDetail .owner .statusBox > div {
+  width: 40%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+}
+.container .right .rightUpper .rightDetail .owner .statusBox > div p {
+  font-size: 0.8vw;
+  text-align: center;
+  margin-top: 20px;
+}
+.container .right .rightUpper .rightDetail .owner .statusBox > div div {
+  width: 60%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+.container .right .rightUpper .rightDetail .owner .statusBox .statusPass div {
+  background-color: #193e10;
+}
+.container .right .rightUpper .rightDetail .owner .statusBox .statusWarn div {
+  background-color: #491408;
+}
+.container .right .rightUpper .rightBorder {
+  width: 5px;
+  transform: rotateY(180deg);
+  background-size: 5px 100%;
+}

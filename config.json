@@ -1,0 +1,12 @@
+{
+    "path" : "./1.mp4",
+    "im_size" : 416,
+    "v" : 6,
+    "x_len" : 30,
+    "dev_p" : 30,
+    "chinese_label" : ["打火机", "压力容器", "刀", "充电宝","打火机油", "手铐", "弹弓", "鞭炮", "尖锐工具", "甩棍", "电棍"],
+    "label_list" : ["lighter","pressure","knife","powerbank","zippooil","handcuffs","slingshot",
+                    "firecrackers","sharpTools","expandableBaton","electricBaton"],
+    "database_path":"C:/Users/DELL/Desktop/项目/yolov5_ambitious/database/kunkun.db" 
+}
+

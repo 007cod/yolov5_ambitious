@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="/static/css/row.css" />
+    <script src="/static/js/row.js" defer></script>
+  </head>
+  <body>
+    <div id="container">
+      <header class="personinfo">
+        <div>
+          <img id='photo' src="data:image/png;base64,{{ base64.b64encode(passenger.photo).decode('utf-8')}}" height="50" alt="Image" />
+        </div>
+        <table>
+          <thead>
+              <tr>
+                  <th>姓名</th>
+                  <th>地址</th>
+                  <th>电话</th>
+                  <th>终点站</th>
+                  <th>车次号</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>{{ passenger["name"] }}</td>
+                  <td>{{ passenger["address"] }}</td>
+                  <td>{{ passenger["phone"] }}</td>
+                  <td>{{ passenger["destination"] }}</td>
+                  <td>{{ passenger["train_number"] }}</td>
+              </tr>
+          </tbody>
+        </table>
+      </header>
+      <article>
+        <div style="width: 500px; height: 300px; margin-top: 200px" id="ab">
+          <div class="content">
+            <div class="list">
+              <div class="item">
+                <img src="data:image/png;base64,{{ base64.b64encode(passenger.Xray_image).decode('utf-8')}}" height="50" />
+              </div>
+            </div>
+          </div>
+        </div>    
+      </article>
+    </div>
+  </body>
+</html>

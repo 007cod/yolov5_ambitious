@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.1/echarts.common.js"></script>
+    <script src="/static/js/chart.js" defer></script>
+    <script src="/static/js/index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="right">
+        <div class="time">2023-02-27 20:17:10</div>
+        <div class="rightUpper">
+          <div class="rightDetail">
+            <div class="owner">
+              <div class="ownerDetailContainer">
+                <div class="titleContainer">
+                  <div class="title">物主实名制录入</div>
+                  <div class="titleDesc">Real name entry</div>
+                  <div class="lines">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div>
+                <div class="ownerDetail">
+                  <img src="/static/images/avatar.jpeg" alt="" class="photo" />
+                  <div class="detailInfo">
+                    <div class="name">无</div>
+                    <div class="desc">男 虚拟职业</div>
+                    <div class="IDNO">1145141919</div>
+                    <div class="defore">无危险检测前科</div>
+                    <button class="button" onclick="">历史信息</button>
+                  </div>
+                </div>
+              </div>
+              <div class="capture">
+                <img src="{{url_for('things')}}" alt="" class="cap" />
+              </div>
+              <div class="statusBox">
+                <div class="statusPass">
+                  <div class="lightRed"></div>
+                  <p>物品正常通行</p>
+                </div>
+                <div class="statusWarn">
+                  <div class="lightGreen"></div>
+                  <p>违禁品分拣中</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rightBorder"></div>
+        </div>
+      </div>
+      <div class="middle">
+        <!-- 标题 -->
+        <div class="topBar">
+          <div class="title">安 检 系 统 实 时 监 控</div>
+          <div class="subTitle">Security system real-time monitoring</div>
+        </div>
+        <!-- 显示视频的地方 -->
+        <div class="mianCamera">
+          <!-- 放视频的地方，先用图片代替 -->
+          <div class="videoBox">
+            <img src="{{url_for('video_feed')}}" alt="" class="video" />
+          </div>
+          <div class="hint">
+            <!-- <p class="text">今日总安检/可疑物品数</p>
+            <span class="totle">3490</span> <span class="doubt">/ 2</span> -->
+          </div>
+        </div>
+        <!-- 设备运行情况 -->
+        <div class="eqStatus">
+          <div class="title">
+            <div class="eqh1">
+              <span>设备运行情况</span
+              ><span>Equipment operation condition</span>
+            </div>
+            <div class="runTime">本次设备运行时间：23:09:77</div>
+          </div>
+          <div class="details">
+            <div
+              id="usage"
+              class="useage"
+              style="width: 8vw; aspect-ratio: 1"
+            ></div>
+          </div>
+        </div>
+        <div class="ctlBtns">
+          <div class="start">开始</div>
+          <div class="warn">一键警报</div>
+          <div class="stop">停止</div>
+        </div>
+      </div>
+      <div class="left">
+        <div class="thingDetail">
+          <!-- 滚动物品列表 -->
+          <div class="thingList">
+            <!-- <div class="thingItemNormal">
+              <div class="detailWrapper">
+                <div>物品正常</div>
+                <div>AI识别：金属</div>
+              </div>
+            </div> -->
+          </div>
+          <!-- 危险物品详情 -->
+          <!-- <div class="dangerDetail">
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <script>
+    </script>
+  </body>
+</html>

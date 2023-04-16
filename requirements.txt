@@ -1,0 +1,9 @@
+opencv-python
+flask
+matplotlib
+os
+flask_sqlalchemy
+imageio
+numpy
+copy
+paddlepaddle
