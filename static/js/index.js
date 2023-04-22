@@ -38,7 +38,6 @@ labels.forEach((label) => {
     `<div class="thingItemNormal">
 			<div class="detailWrapper">
 				<div>${label}</div>													
-				<div>物品名称</div>
 		</div>
 		</div>`
   );
@@ -118,3 +117,56 @@ setInterval(() => {
     PerName.textContent = e.name;
   })
 }, 500);
+
+function renderChart() {
+  fetch('/data')
+    .then(response => response.json())
+    .then(data => {
+      const chartData = data.data;
+      const chartLabels = chartData.map(d => d.hour);
+      const chartValues = chartData.map(d => d.count);
+
+      const ctx = document.getElementById('chart').getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+            datasets: [{
+                label: '违禁品数量',
+                backgroundColor: 'rgba(255, 99, 132, 0.8)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1,
+                data: [12, 19, 3, 5, 2, 3, 10, 6, 9, 12, 20, 22, 16, 14, 18, 24, 22, 19, 15, 12, 10, 8, 6, 4],
+            }]
+        },
+        options: {
+            animation: {
+                duration: 2000,
+                easing: 'easeInOutQuad'
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+            legend: {
+                labels: {
+                    fontColor: '#fff'
+                }
+            },
+            title: {
+                display: true,
+                text: '违禁品检测数量统计',
+                fontColor: '#fff',
+                fontSize: 36
+            }
+        }
+    });
+    });
+}
+// 在页面加载时渲染图表
+window.onload = function() {
+  renderChart();
+};

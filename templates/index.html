@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/static/css/index.css" />
     <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.1/echarts.common.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="/static/js/chart.js" defer></script>
     <script src="/static/js/index.js" defer></script>
   </head>
@@ -99,17 +100,10 @@
       <div class="left">
         <div class="thingDetail">
           <!-- 滚动物品列表 -->
-          <div class="thingList">
-            <!-- <div class="thingItemNormal">
-              <div class="detailWrapper">
-                <div>物品正常</div>
-                <div>AI识别：金属</div>
-              </div>
-            </div> -->
-          </div>
-          <!-- 危险物品详情 -->
-          <!-- <div class="dangerDetail">
-          </div> -->
+          <div class="thingList"></div>
+        </div>
+        <div class="chart-container">
+          <canvas id="chart"></canvas>
         </div>
       </div>
     </div>

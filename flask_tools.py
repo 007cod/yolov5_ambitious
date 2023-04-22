@@ -42,5 +42,5 @@ config_path  = './config.json'
 with open(config_path,'r',encoding='utf-8') as f: 
     arg = json.load(f)
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///"+arg['database_path']
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///"+ os.path.join(os.getcwd(), arg['database_path'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

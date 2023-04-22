@@ -31,6 +31,22 @@ html::-webkit-scrollbar-thumb {
   background-size: 5px 100%;
   display: flex;
 }
+
+.container .left .chart-container{
+  width: 80%;
+  margin: 50px auto;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.container .left .chart-container canvas
+{
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+
 .container .left .thingDetail .thingList {
   overflow: scroll;
   height: 100%;
@@ -48,7 +64,7 @@ html::-webkit-scrollbar-thumb {
   border-radius: 25px;
 }
 .container .left .thingDetail .thingList > div {
-  height: 64px;
+  height: 32px;
   margin-bottom: 10px;
   position: relative;
 }
@@ -58,10 +74,10 @@ html::-webkit-scrollbar-thumb {
   right: 0;
 }
 .container .left .thingDetail .thingList > div .detailWrapper :first-child {
-  font-size: 1.2vw;
+  font-size: 1vw;
 }
 .container .left .thingDetail .thingList > div .detailWrapper :last-child {
-  font-size: 0.7vw;
+  font-size: 1vw;
   opacity: 0.8;
   text-align: right;
 }
@@ -76,6 +92,8 @@ html::-webkit-scrollbar-thumb {
 .container .left .thingDetail .thingList .thingItemDanger * {
   color: #f40000;
 }
+
+
 .container .left .thingDetail .dangerDetail {
   flex: 3;
   display: flex;
@@ -263,6 +281,7 @@ html::-webkit-scrollbar-thumb {
   bottom: 0;
   transform: translateX(-50%);
 }
+
 .container .middle .ctlBtns {
   width: 100%;
   height: 27px;
@@ -411,3 +430,4 @@ html::-webkit-scrollbar-thumb {
   transform: rotateY(180deg);
   background-size: 5px 100%;
 }
+

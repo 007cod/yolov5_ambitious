@@ -1,9 +1,9 @@
-opencv-python
-flask
-matplotlib
-os
-flask_sqlalchemy
-imageio
 numpy
-copy
+flask
+imageio
 paddlepaddle
+opencv-python
+matplotlib
+pyyaml
+flask_sqlalchemy
+imageio[ffmpeg]

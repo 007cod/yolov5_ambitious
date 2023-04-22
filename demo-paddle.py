@@ -1,21 +1,18 @@
 from distutils.log import log
 from tkinter.messagebox import NO
 import cv2
-from flask import Flask, render_template, Response
+from flask import Flask, render_template, Response,jsonify
 import imageio
-import os
 import numpy as np
 import time
 import cv2 as cv
 import matplotlib
-import sys
 import json
-import yaml
 import copy
-import sqlite3
 from PIL import Image
-import io
 import base64
+import datetime
+import random
 
 from ASC import select
 from flask_tools import gen_frames, Store, app
@@ -57,9 +54,6 @@ num = 0
 time_t = time.time()
 
 q = [0, Person(1,'b', 'kunkun'), 15, 20, Person(2, 'a', 'lanqiu'), 30]  #[进入时间，人物信息，离开时间]
-for id in range(len(q)):
-    if isinstance(q[id], int):
-        q[id] = time_t + q[id]
 
 """--------------初始化人物识别模型-----------------------------"""
 save_img_path = "./static/images/PersonImg"
@@ -133,6 +127,9 @@ def get_state():
 
 @app.route('/')
 def index():
+    for id in range(len(q)):
+        if isinstance(q[id], int):
+            q[id] = time_t + q[id]
     """Video streaming home page."""
     return render_template('index.html', message_list=state)
 
@@ -156,6 +153,19 @@ def items(name):
     items_data = base64.b64encode(passenger.Xray_image).decode()
     return json.dumps({'items_data' : items_data})
 
+@app.route('/data')
+def data():
+    now = datetime.datetime.now()
+    data = []
+    for i in range(24):
+        data.append({
+            'hour': i,
+            'count': random.randint(0, 100)
+        })
+    return jsonify({
+        'timestamp': now.timestamp(),
+        'data': data
+    })
     
 def init_data():
     with open('./static/images/kunkun.jpg','rb') as f:
