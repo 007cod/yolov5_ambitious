@@ -1,6 +1,3 @@
-from distutils.log import log
-from tkinter.messagebox import NO
-from flask import Flask, render_template, Response,jsonify
 import time
 import cv2 as cv
 import matplotlib
@@ -55,7 +52,7 @@ class demo():
         num = 0
         time_t = time.time()
         for img in self.cap: 
-            pix_len = img.shape[1]
+
             num += 1
             if num % 3 != 0:
                 continue
