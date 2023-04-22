@@ -44,7 +44,6 @@ def get_cap(path):
         cap.set(cv.CAP_PROP_FRAME_HEIGHT, 768)
     return cap
 
-
 """--------------初始化分拣模型-----------------------------"""
 sec = select(get_model(arg), arg, threshold=0.5)
 
@@ -52,8 +51,7 @@ cap = get_cap(arg['path'])
 
 num = 0
 time_t = time.time()
-
-q = [0, Person(1,'b', 'kunkun'), 15, 20, Person(2, 'a', 'lanqiu'), 30]  #[进入时间，人物信息，离开时间]
+q = [0, Person(1,'b', 'kunkun'), 10, 10, Person(2, 'a', 'lanqiu'), 20]  #[进入时间，人物信息，离开时间]
 
 """--------------初始化人物识别模型-----------------------------"""
 save_img_path = "./static/images/PersonImg"
@@ -76,6 +74,11 @@ store.save_img2(empty)
 
 def genPic():
     global state, label, num, time_t, person
+    for id in range(len(q)):
+        if isinstance(q[id], int):
+            q[id] = time.time() + q[id]
+    print("*"*20)
+    print(time_t)
     for img in cap: 
         pix_len = img.shape[1]
         num += 1
@@ -127,11 +130,18 @@ def get_state():
 
 @app.route('/')
 def index():
-    for id in range(len(q)):
-        if isinstance(q[id], int):
-            q[id] = time_t + q[id]
+    # global state, label, num, time_t, person
+    # state = ""
+    # label = ""
+    # person = None
+    # time_t = time.time()
+    # print("*"*20)
+    # print(person)
+    # for id in range(len(q)):
+    #     if isinstance(q[id], int):
+    #         q[id] = time_t + q[id]
     """Video streaming home page."""
-    return render_template('index.html', message_list=state)
+    return render_template('index.html')
 
 @app.route('/<name>')
 def show_person(name):

@@ -46,11 +46,10 @@ class save_info():
             kpo[:, :self.photo.shape[1], :] = self.photo
             self.photo = kpo
         elif self.end_time and nt - self.end_time > self.dlt: #物品已经全部经过安检机的扫描
-            self.save()
+            #self.save()
             self.start_time = self.end_time = self.person = self.photo = None
         return self.person, self.photo
             
-
     def get_data(self):
         '''
         更新数据
