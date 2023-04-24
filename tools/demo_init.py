@@ -24,11 +24,10 @@ class demo():
         self.config_path = './config.json' 
         self.save_img_path = "./static/images/PersonImg"
         self.store = Store()
-        self.q = [0, Person(1,'b', 'kunkun'), 10, 10, Person(2, 'a', 'lanqiu'), 20]  #[进入时间，人物信息，离开时间]
         self.init_config()
 
     def init_config(self):
-        self.q = [0, Person(1,'b', 'kunkun'), 10, 10, Person(2, 'a', 'lanqiu'), 20]  #[进入时间，人物信息，离开时间]
+        self.q = [0, Person(1,'b', 'kunkun'), 20, 20, Person(2, 'a', 'lanqiu'), 50]  #[进入时间，人物信息，离开时间]
         self.state = ""
         self.label = ""
         self.person = None

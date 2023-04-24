@@ -138,7 +138,7 @@ let Passenger_name = document.querySelector('.name').textContent;
 
 var my
 window.onload = () => {
-my = new myScroll({ id: 'ab' ,space:100})
+my = new myScroll({ id: 'Xray' ,space:100})
 setTimeout(()=>{
     my.update();
 },1500)

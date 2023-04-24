@@ -13,7 +13,7 @@ class save_info():
         self.start_time = None  #进入时间
         self.end_time = None  #离开时间
         self.person = None   #人物信息
-        self.photo  = None  #图片
+        self.photo  = np.ones((1,1,3),dtype=np.int8)*255  #图片
         self.data_person = data  #[进入时间，人物信息，离开时间]
         self.dlt = dl/v  #物品到达安检机的所需时间
         self.pl = 5
@@ -47,7 +47,8 @@ class save_info():
             self.photo = kpo
         elif self.end_time and nt - self.end_time > self.dlt: #物品已经全部经过安检机的扫描
             #self.save()
-            self.start_time = self.end_time = self.person = self.photo = None
+            self.start_time = self.end_time = self.person = None
+            self.photo = np.ones((1,1,3),dtype=np.int8)*255 
         return self.person, self.photo
             
     def get_data(self):
