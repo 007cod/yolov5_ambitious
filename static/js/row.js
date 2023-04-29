@@ -55,7 +55,6 @@ class myScroll {
       this.moveWidth = this.maxWidth - this.viewWidth
       let left=this.leftNum
       this.content.scrollLeft = left / this.endLeft * (this.maxWidth - this.viewWidth)
-
       this.bar.style.left = left + 'px'
     }
     beginMove(e) {
@@ -133,23 +132,50 @@ class myScroll {
     }
   }
 
-let prohibited_item = document.querySelector(".item img");
+let prohibited_item = document.querySelector("#Xray img");
 let Passenger_name = document.querySelector('.name').textContent;
 
 var my
+var danger_items
 window.onload = () => {
 my = new myScroll({ id: 'Xray' ,space:100})
 setTimeout(()=>{
     my.update();
+},1500)
+
+danger_items = new myScroll({ id: 'danger_items' ,space:100})
+setTimeout(()=>{
+  danger_items.update();
+  if (Passenger_name != 'undefined')
+  {
+      fetch('/danger_items/'+Passenger_name).then((e)=>e.json())
+      .then((e)=>{
+        for(i=0; i<e.name.length; i++)
+        {
+          let div = document.createElement('div');
+          div.classList.add('item');
+          let img = document.createElement('img');
+          img.src = 'data:image/png;base64,' + e.img[i];
+          let name = document.createElement('div');
+          name.textContent = e.name[i];
+          name.classList.add('name')
+          div.appendChild(img)
+          div.appendChild(name)
+          danger_items.content.firstElementChild.append(div)
+        }
+        }
+      )
+  }
+
 },1500)
 }
 
 setInterval(() => {
   if (Passenger_name != 'undefined')
   {
-    fetch("/items/"+Passenger_name).then((e) => e.json())
+    fetch("/Xray/"+Passenger_name).then((e) => e.json())
     .then((e) =>{
-      prohibited_item.src = 'data:image/png;base64,' + e.items_data;
+      prohibited_item.src = 'data:image/png;base64,' + e.Xray_img;
     })
   }
 }, 500);

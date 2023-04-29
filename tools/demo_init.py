@@ -1,17 +1,41 @@
 import time
-import cv2 as cv
+import cv2
 import matplotlib
 import json
 import copy
+import datetime
 
 from ASC import select
-from flask_tools import gen_frames, Store, app
-from tools.datatools import *
-from tools.data_init import *
+from flask_tools import gen_frames, app
+from tools.datatools import add_banned_item, add_passenger, update_person
+from tools.data_init import db, Prohibited_Items, Passengers
 from tools.cap import get_cap
 from tools.model import get_model
 from Person_O import save_info,Person
 matplotlib.use('Agg')
+
+
+class Store():
+    def __init__(self) -> None:
+        self.arg = {'img' : None,
+                    'x_ray_img' : None,
+                    'label': "",
+                    'state': "",
+                    'isChange':False}
+
+    def set_label(self, label):
+        if(label != self.arg['label']):
+            self.arg['isChange'] = True
+        self.arg['label'] = label
+
+    def set_state(self, state):
+        if (state != self.arg['state']):
+            self.arg['isChange'] = True
+        self.arg['state'] = state
+
+    def get_arg(self, name):
+        while True:
+            yield self.arg[name]
 
 class demo():
     def __init__(self) -> None:
@@ -27,7 +51,7 @@ class demo():
         self.init_config()
 
     def init_config(self):
-        self.q = [0, Person(1,'b', 'kunkun'), 20, 20, Person(2, 'a', 'lanqiu'), 50]  #[进入时间，人物信息，离开时间]
+        self.q = [0, Person(1,'b', 'kunkun'), 20, 20, Person(2, 'a', 'lanqiu'), 300]  #[进入时间，人物信息，离开时间]
         self.state = ""
         self.label = ""
         self.person = None
@@ -43,15 +67,14 @@ class demo():
         self.sa = save_info(self.q, self.arg['v'], self.arg['x_len'], self.save_img_path)
 
         # 解决第一张图片为空
-        empty_img = cv.imread("empty.png")
+        empty_img = cv2.imread("empty.png")
         empty = gen_frames(empty_img)
-        self.store.save_img2(empty)
+        self.store.arg['x_ray_img'] = empty
 
-    def genPic(self):
+    def get_main(self):
         num = 0
         time_t = time.time()
         for img in self.cap: 
-
             num += 1
             if num % 3 != 0:
                 continue
@@ -60,8 +83,7 @@ class demo():
                 time.sleep(0.20-(lt-time_t))
             time_t = time.time()
 
-            img = cv.cvtColor(img, cv.COLOR_RGB2BGR)
-
+            img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
             img_clone = copy.deepcopy(img)
 
             self.person, image = self.sa.run(img_clone)
@@ -69,12 +91,14 @@ class demo():
 
             img, state, items = self.sec.run(img)
             self.store.set_state(state)
+            self.store.arg['img'] = gen_frames(img)
             # print("--------------", items[0])
             if len(items) != 0:
                 img2, label = items[0]
-                img2 = gen_frames(img2)
-                self.store.save_img2(img2)
+                self.store.arg['x_ray_img'] = gen_frames(img2)
                 self.store.set_label(label)
-            img = gen_frames(img)
-            yield img
-
+                img2Bt =  cv2.imencode('.png', img2)[1].tobytes()
+                if self.person:
+                    with app.app_context():
+                        add_banned_item(label, '重庆', datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), self.person.name, self.person.id,img2Bt)
+            yield self.store.arg['img']

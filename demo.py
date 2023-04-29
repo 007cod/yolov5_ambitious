@@ -154,6 +154,7 @@ empty = gen_frames(empty_img)
 store.save_img2(empty)
 last_state = False
 l_t = time.time()
+
 def genPic():
     global state, label, num, time_t, l_t,last_state
     while cap.isOpened():

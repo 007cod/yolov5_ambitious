@@ -47,7 +47,7 @@ class select(object):
         img = draw_img(image, result[0], self.eng, colo_map, self.threshold)
         return img, self.state, self.new_items
     
-    def get_img(self,frame):
+    def get_result_img(self,frame):
         result = self.infer_model(frame)
         colo_map = get_color_map_list(self.num_classes)
         img = draw_img(frame, result[0], self.eng, colo_map, self.threshold)
@@ -91,7 +91,7 @@ class select(object):
             flag = True
             #print(len(self.dq_loc))
             for x,y in self.dq_loc:
-                if pow(x-x_loc,2)+pow(y-y_loc,2) < 10000:
+                if pow(x-x_loc,2) + pow(y-y_loc,2) < 1000000:
                     #print(abs(pow(x-x_loc,2)+pow(y-y_loc,2)))
                     flag = False
                     break
@@ -115,7 +115,7 @@ class select(object):
             return
         idxx = int(0)
         for idx, p in enumerate(self.dq_loc):
-            if p[0] > 0:
+            if p[0] > -100:
                 idxx = idx
                 break
         self.dq_loc = self.dq_loc[idxx:]

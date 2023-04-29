@@ -12,6 +12,7 @@
         <div>
           <img id='photo' src="data:image/png;base64,{{ base64.b64encode(passenger.photo).decode('utf-8')}}" height="50" alt="Image" />
         </div>
+        <div class="title">旅 客 信 息</div>
         <table class="info">
           <thead>
               <tr>
@@ -33,7 +34,7 @@
           </tbody>
         </table>
       </header>
-      <article>
+      <article class="article">
         <div id="Xray">
           <div class="content">
             <div class="list">
@@ -42,8 +43,18 @@
               </div>
             </div>
           </div>
-        </div>    
+        </div>
       </article>
+      <footer class="footer">
+        <div id="danger_items">
+          <div class="content">
+            <div class="list">
+              <div class="item">
+              </div>
+            </div>
+          </div>
+        </div>    
+      </footer>
     </div>
   </body>
 </html>

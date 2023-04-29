@@ -1,7 +1,25 @@
+body {
+  background-color: #000000;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Style the container div */
+#container {
+  margin: 0 auto;
+  padding: 50px;
+}
+
 #Xray{
-  width: 800px;
-  height: 300px;
-  margin-top: 100px;
+  width: 100%;
+  height: 100%;
+  margin-top: 2%;
+}
+
+#danger_items{
+  width: 100%;
+  height: 100%;
+  margin-top: 2%;
 }
 
 .KatyLightScrollRowsBox > .content::-webkit-scrollbar,
@@ -9,10 +27,6 @@
       width: 0;
       height: 0;
     }
-
-body {
-  background-color: #3b3e49;
-}
 
 .KatyLightScrollRowsBox > .content {
   scrollbar-width: none;
@@ -32,7 +46,7 @@ body {
 }
 
 .KatyLightScrollRowsBox > .scrollBox > .scroll {
-  background-color: #00071866;
+  background-color: #baf5ff66;
   border-radius: 3px;
   height: 20px;
   width: 100%;
@@ -47,7 +61,7 @@ body {
 }
 
 .KatyLightScrollRowsBox > .scrollBox > .left, .KatyLightScrollRowsBox > .scrollBox > .right {
-  background-color: #080E14;
+  background-color: #ffc3f7;
   border-radius: 3px;
   height: 20px;
   width: 40px;
@@ -86,7 +100,7 @@ body {
 }
 
 .KatyLightScrollRowsBox > .scrollBox > .scroll > .bar {
-  background-color: #080E14;
+  background-color: #a2d0ff;
   position: absolute;
   z-index: 33;
   border-radius: 3px;
@@ -96,7 +110,7 @@ body {
   top: 0;
 }
 
-.list {
+#Xray .list {
   height: 400px;
   padding: 10px;
   float: left;
@@ -105,11 +119,11 @@ body {
   white-space: nowrap;
   /*display:table;*/
 }
-.list > .item:last-child{
+#Xray .list > .item:last-child{
   margin-right: 3px;
 }
 
-.list > .item:hover {
+#Xray .list > .item:hover {
   box-shadow: inset 0 0 0 1px #00b2ff;
 }
 
@@ -135,28 +149,58 @@ body {
     color: white;
     object-fit:fill;
   }
-  .list > .item img {
-    margin-left: 3px;
-    display: inline-block;
-    height: 90%;
-    width: auto;
-    /*border-radius: 10px;*/
-    color: white;
-    object-fit:fill;
-  }
-
-/* Set font family and size for the whole page */
-body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
+.list > .item img {
+  margin-left: 3px;
+  display: inline-block;
+  height: 90%;
+  /*border-radius: 10px;*/
+  color: white;
+  object-fit:fill;
 }
 
-/* Style the container div */
-#container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+
+/* #danger_items  .list > .item {
+  height: 50%;
+} */
+#danger_items  .list > .item{
+  height: 250px;
+  width:200px;
+  margin-bottom: 20px;
 }
+
+#danger_items .list > .item img {
+  position: relative;
+  width: 100%;
+  object-fit:contain;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #ccc;
+  background-color: #f7f7f7;
+}
+
+
+#danger_items  .list > .item > .name{
+  position: relative;
+  color: crimson;
+  font-size: 22px;
+  text-align: center;
+  bottom: -1%;
+}
+
+#danger_items .list > .item img:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #ccc;
+  z-index: -1;
+}
+
+
 
 /* Style the personinfo header */
 .personinfo {
@@ -170,10 +214,28 @@ body {
 
 /* Style the image in the personinfo header */
 .personinfo img {
+  position: relative;
+  top: auto;
+  left: 5%;
   margin-right: 10px;
   width: 80px;
   height: 120px;
   border: 2px solid #ccc;
+}
+
+.personinfo .title {
+  position: relative;
+  top: -70px;
+  width: 408px;
+  height: 56px;
+  font-weight: bold;
+  font-size: 3vw;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
 }
 
 /* Style the table */

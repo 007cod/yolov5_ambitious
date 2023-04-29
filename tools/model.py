@@ -17,6 +17,7 @@ class pre(object):
         data = self.preprocess(img, self.im_size)
         result = self.predict(self.predictor, [im_shape, data, scale_factor])
         return result
+
 def get_model(arg):
     global label_list ,num_classes
     model_file = './inference_model_PPYOLOTiny/ppyolo/inference_model/model.pdmodel'
